@@ -10,13 +10,20 @@ import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.Configuration;
 
 
-@Endpoint(url = "${base_url}/users", methodType = HttpMethodType.GET)
-@RequestTemplatePath(path = "res/rq...")
-@ResponseTemplatePath(path = "res/rs...")
-@SuccessfulHttpStatus(status = HttpResponseStatusType.ACCEPTED_202)
+@Endpoint(url = "${base_url}/users/${user}", methodType = HttpMethodType.GET)
+//@RequestTemplatePath(path = "res/rq...")
+@ResponseTemplatePath(path = "api/user/rs.json")
+@SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class GetUserMethods extends AbstractApiMethodV2 {
 
-    public GetUserMethods() {
-        replaceUrlPlaceholder("base_url", Configuration.get("api_url"));
+    public GetUserMethods(String user) {
+
+//        super(null, "api/user/rs.json");
+
+        String apiUrl = Configuration.getEnvArg("api_url");
+        System.out.println(apiUrl);
+
+        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
+        replaceUrlPlaceholder("user", user);
     }
 }
