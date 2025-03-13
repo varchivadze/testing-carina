@@ -7,7 +7,7 @@ import com.zebrunner.carina.api.annotation.ResponseTemplatePath;
 import com.zebrunner.carina.api.annotation.SuccessfulHttpStatus;
 import com.zebrunner.carina.api.http.HttpMethodType;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
-import com.zebrunner.carina.utils.Configuration;
+import com.zebrunner.carina.utils.config.Configuration;
 
 
 @Endpoint(url = "${base_url}/users/${user}", methodType = HttpMethodType.GET)
@@ -20,10 +20,10 @@ public class GetUserMethods extends AbstractApiMethodV2 {
 
 //        super(null, "api/user/rs.json");
 
-        String apiUrl = Configuration.getEnvArg("api_url");
+        String apiUrl = Configuration.getRequired("api_url");
         System.out.println(apiUrl);
 
-        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
+        replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
         replaceUrlPlaceholder("user", user);
     }
 }
