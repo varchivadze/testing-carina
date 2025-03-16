@@ -11,7 +11,7 @@ import com.zebrunner.carina.utils.config.Configuration;
 
 @Endpoint(url = "${base_url}/repos/${owner}/${repo}/issues", methodType = HttpMethodType.GET)
 //@RequestTemplatePath(path = "res/rq...")
-@ResponseTemplatePath(path = "api/repos/issues/rs.json")
+//@ResponseTemplatePath(path = "api/repos/issues/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class GetIssues extends AbstractApiMethodV2 {
 

@@ -1,16 +1,6 @@
 {
-  "owner": "varchivadze",
-  "repo": "testing-carina",
   "title": "${title}",
   "body": "${body}",
-  "assignees": [
-    "varchivadze"
-  ],
-  "milestone": 1,
-  "labels": [
-    "bug"
-  ],
-  "headers": {
-    "X-GitHub-Api-Version": "2022-11-28"
-  }
+  "assignees": ["varchivadze"],
+  "labels": ["bug"]
 }

@@ -12,7 +12,7 @@ import com.zebrunner.carina.api.http.HttpResponseStatusType;
 
 @Endpoint(url = "${base_url}/repos/${owner}/${repo}/issues", methodType = HttpMethodType.POST)
 @RequestTemplatePath(path = "api/repos/issue/rq.json")
-//@ResponseTemplatePath(path = "api/repos/_post/rs.json")
+@ResponseTemplatePath(path = "api/repos/_post/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.CREATED_201)
 public class PostIssue extends AbstractApiMethodV2 {
 
