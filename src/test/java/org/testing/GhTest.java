@@ -70,14 +70,14 @@ public class GhTest implements IAbstractTest {
         apiMethod.validateResponseAgainstSchema(REPO_SCHEMA);
     }
 
-//    @Test(description = "Geeting repo issues by name", priority = 2)
-//    @MethodOwner(owner = "varchivadze")
-//    public void getRepoIssues() {
-//        AbstractApiMethodV2 apiMethod = new GetIssues("varchivadze","testing-carina");
-//        apiMethod.callAPIExpectSuccess();
-//        apiMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
-//        apiMethod.validateResponseAgainstSchema(REPOS_SCHEMA);
-//    }
+    @Test(description = "Geeting repo issues by name", priority = 2)
+    @MethodOwner(owner = "varchivadze")
+    public void getRepoIssues() {
+
+        AbstractApiMethodV2 apiMethod = new GetIssues("varchivadze","testing-carina");
+        apiMethod.callAPIExpectSuccess();
+        apiMethod.validateResponseAgainstSchema(REPOS_SCHEMA);
+    }
 
 //    @Test(description = "create issue", priority = 3)
 //    public void createIssue() {
