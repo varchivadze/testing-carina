@@ -3,14 +3,16 @@ package org.testing;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zebrunner.carina.api.AbstractApiMethodV2;
-
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
-
+import io.restassured.common.mapper.TypeRef;
+import io.restassured.response.Response;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import java.util.List;
 
 
 public class GhTest implements IAbstractTest {
@@ -26,8 +28,8 @@ public class GhTest implements IAbstractTest {
 
     @DataProvider
     public Object[][] dataForUserTest() {
-        return new Object[][] {
-                {"varchivadze","testing-carina"},
+        return new Object[][]{
+                {"varchivadze", "testing-carina"},
                 {"arivadis", "BitsHit"}
         };
     }
@@ -63,8 +65,7 @@ public class GhTest implements IAbstractTest {
     @Test(description = "Geeting repo by name", priority = 1, dataProvider = "dataForUserTest")
     @MethodOwner(owner = "varchivadze")
     public void getRepo(String owner, String repo) {
-        AbstractApiMethodV2 apiMethod = new GetRepo(owner,repo);
-
+        AbstractApiMethodV2 apiMethod = new GetRepo(owner, repo);
         apiMethod.callAPIExpectSuccess();
 
         apiMethod.validateResponseAgainstSchema(REPO_SCHEMA);
@@ -74,9 +75,15 @@ public class GhTest implements IAbstractTest {
     @MethodOwner(owner = "varchivadze")
     public void getRepoIssues() {
 
-        AbstractApiMethodV2 apiMethod = new GetIssues("varchivadze","testing-carina");
-        apiMethod.callAPIExpectSuccess();
-        apiMethod.validateResponseAgainstSchema(REPOS_SCHEMA);
+        AbstractApiMethodV2 apiMethod = new GetIssues("varchivadze", "testing-carina");
+        Response response = apiMethod.callAPIExpectSuccess();
+        List<Issue> issues = response.as(new TypeRef<List<Issue>>() {});
+        SoftAssert softAssert = new SoftAssert();
+        for (Issue issue : issues) {
+            softAssert.assertTrue(issue.getId() > 0, String.format("Issue id %s to 0", issue.getId()));
+            softAssert.assertTrue(issue.getTitle().contains("_") || issue.getTitle().contains("bug") || issue.getTitle().contains("test"), String.format("Issue title %s to _", issue.getTitle()));
+        }
+        softAssert.assertAll();
     }
 
 //    @Test(description = "create issue", priority = 3)
