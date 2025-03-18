@@ -1,4 +1,4 @@
-package org.testing;
+package org.testing.api;
 
 import com.zebrunner.carina.utils.config.Configuration;
 import com.zebrunner.carina.api.AbstractApiMethodV2;

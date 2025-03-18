@@ -1,4 +1,4 @@
-package org.testing;
+package org.testing.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

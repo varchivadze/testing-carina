@@ -7,6 +7,11 @@ import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
+import org.testing.api.GetIssues;
+import org.testing.api.GetRepo;
+import org.testing.api.GetUserMethods;
+import org.testing.domain.Issue;
+import org.testing.domain.User;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,10 +21,10 @@ import java.util.List;
 
 
 public class GhTest implements IAbstractTest {
+
     private static final String REPOS_SCHEMA = "api/repos/issues/rs.json";
     private static final String REPO_SCHEMA = "api/repos/rs.json";
     private static final String USER_SCHEMA = "api/user/rs.json";
-
 
     @BeforeTest
     public void beforeTest() {
@@ -34,8 +39,7 @@ public class GhTest implements IAbstractTest {
         };
     }
 
-
-    @Test(description = "Geeting user by name", priority = 0)
+    @Test(description = "Geeting user by name")
     @MethodOwner(owner = "varchivadze")
     public void testGetUser() {
         AbstractApiMethodV2 apiMethod = new GetUserMethods("arivadis");
@@ -58,11 +62,9 @@ public class GhTest implements IAbstractTest {
 
         sf.assertAll();
         apiMethod.validateResponseAgainstSchema(USER_SCHEMA);
-
-
     }
 
-    @Test(description = "Geeting repo by name", priority = 1, dataProvider = "dataForUserTest")
+    @Test(description = "Geeting repo by name", dataProvider = "dataForUserTest")
     @MethodOwner(owner = "varchivadze")
     public void getRepo(String owner, String repo) {
         AbstractApiMethodV2 apiMethod = new GetRepo(owner, repo);
@@ -71,13 +73,14 @@ public class GhTest implements IAbstractTest {
         apiMethod.validateResponseAgainstSchema(REPO_SCHEMA);
     }
 
-    @Test(description = "Geeting repo issues by name", priority = 2)
+    @Test(description = "Geeting repo issues by name")
     @MethodOwner(owner = "varchivadze")
     public void getRepoIssues() {
 
         AbstractApiMethodV2 apiMethod = new GetIssues("varchivadze", "testing-carina");
         Response response = apiMethod.callAPIExpectSuccess();
-        List<Issue> issues = response.as(new TypeRef<List<Issue>>() {});
+        List<Issue> issues = response.as(new TypeRef<List<Issue>>() {
+        });
         SoftAssert softAssert = new SoftAssert();
         for (Issue issue : issues) {
             softAssert.assertTrue(issue.getId() > 0, String.format("Issue id %s to 0", issue.getId()));
@@ -86,7 +89,7 @@ public class GhTest implements IAbstractTest {
         softAssert.assertAll();
     }
 
-//    @Test(description = "create issue", priority = 3)
+//    @Test(description = "create issue")
 //    public void createIssue() {
 //        PostIssue postIssue = new PostIssue("varchivadze","testing-carina");
 //        postIssue.setProperties("api/repos/issue/rq.properties");
