@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="WebSuit" verbose="1">
+    <test name="Web">
+        <classes>
+            <class name="org.testing.webtesting.AmazonFootBar"/>
+        </classes>
+    </test>
+</suite>

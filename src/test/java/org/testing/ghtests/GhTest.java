@@ -1,4 +1,4 @@
-package org.testing;
+package org.testing.ghtests;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
