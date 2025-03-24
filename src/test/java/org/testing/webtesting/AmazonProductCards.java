@@ -21,9 +21,9 @@ public class AmazonProductCards implements IAbstractTest {
 
         SoftAssert softAssert = new SoftAssert();
         CardsLayout cardsLayout = homePage.getCardsLayout();
-        List<ExtendedWebElement> cards = cardsLayout.getCards();
-        Assert.assertFalse(cards.isEmpty(), "The list of Cards is empty!!!");
-        cards.stream()
+        List<ExtendedWebElement> cardsNew = cardsLayout.getCards();
+        Assert.assertFalse(cardsNew.isEmpty(), "The list of Cards is empty!!!");
+        cardsNew.stream()
                 .peek(e -> System.out.println(e.getTagName() + e.getTitle() + e.getAttribute("id")))
                 .forEach(e -> {
 

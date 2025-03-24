@@ -33,17 +33,18 @@ public class CardsLayout extends CardsLayoutBase{
 
     @Override
     public List<ExtendedWebElement> getCards() {
-        List<ExtendedWebElement> cards = new ArrayList<>();
-        for (int i = 0; true; i++) {
+        List<ExtendedWebElement> newCards = new ArrayList<>();
+        for (int i = 1; true; i++) {
             ExtendedWebElement newCard = this.cards.findExtendedWebElement(By.id(String.format("desktop-grid-%s", i)));
-            if (newCard != null && newCard.isElementPresent()) {
-                cards.add(newCard);
+            System.out.println(String.format("desktop-grid-%s", i));
+            if (newCard != null) {
+                newCards.add(newCard);
             } else {
                 break;
             }
         }
 
-        return cards;
+        return newCards;
     }
 
 
