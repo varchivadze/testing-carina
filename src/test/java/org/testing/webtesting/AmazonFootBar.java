@@ -13,7 +13,7 @@ import org.testng.asserts.SoftAssert;
 public class AmazonFootBar implements IAbstractTest {
 
     @Test
-    public void testAmazonFootBarOpening() throws InterruptedException {
+    public void testAmazonFootBarOpening() {
         HomePageBase homePage = new HomePage(getDriver());
         homePage.open();
         pause(8);
@@ -30,6 +30,4 @@ public class AmazonFootBar implements IAbstractTest {
         softAssert.assertTrue(getDriver().getCurrentUrl().startsWith("https://www.amazon.com/business/"));
         softAssert.assertAll();
     }
-
-
 }
