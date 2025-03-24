@@ -17,7 +17,7 @@ public class AmazonProductCards implements IAbstractTest {
     public void cardWithPicture() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        pause(8);
+        pause(15);
 
         SoftAssert softAssert = new SoftAssert();
         CardsLayout cardsLayout = homePage.getCardsLayout();

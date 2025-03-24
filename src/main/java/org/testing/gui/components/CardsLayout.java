@@ -15,7 +15,7 @@ public class CardsLayout extends CardsLayoutBase{
 //    @FindBy(id = ".//div[starts-with(@id, 'desktop-grid-')]")
 //    private List<ExtendedWebElement> cards;
 
-    @FindBy(id = "gw-card-layout')]")
+    @FindBy(id = "gw-card-layout")
     private ExtendedWebElement cards;
 
     public CardsLayout(WebDriver driver) {
