@@ -1,9 +1,10 @@
 package org.testing.gui.common;
 
-import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
-import org.testing.gui.components.Footer;
+import org.testing.gui.components.CardsLayout;
+import org.testing.gui.components.MainShopNavBar;
+import org.testing.gui.footer.FooterNav;
 
 public abstract class HomePageBase extends AbstractPage {
 
@@ -16,6 +17,9 @@ public abstract class HomePageBase extends AbstractPage {
         super.open();
     }
 
-    public abstract Footer getFooter();
+    public abstract FooterNav getFooter();
 
+    public abstract MainShopNavBar getMainShopNavbar();
+
+    public abstract CardsLayout getCardsLayout();
 }
