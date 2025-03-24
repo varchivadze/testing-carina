@@ -17,7 +17,7 @@ public class AmazonProductCards implements IAbstractTest {
     public void cardWithPicture() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        pause(15);
+        pause(8);
 
         SoftAssert softAssert = new SoftAssert();
         CardsLayout cardsLayout = homePage.getCardsLayout();
@@ -34,8 +34,8 @@ public class AmazonProductCards implements IAbstractTest {
                     System.out.println("The header of Card -> " + header.getText());
                     softAssert.assertFalse(header.getText().isEmpty(), "No text in card header");
 
-                    ExtendedWebElement footer = e.findExtendedWebElement(By.xpath(".//div[@class='a-cardui-footer']//h2"));
-                    System.out.println("The header of Card -> " + footer.getText());
+                    ExtendedWebElement footer = e.findExtendedWebElement(By.xpath(".//span[contains(@class, a-truncate-full)][2]"));
+                    System.out.println("The footer of Card -> " + footer.getText());
                     softAssert.assertFalse(footer.getText().isEmpty(), "No text in card footer");
 
                     ExtendedWebElement link = e.findExtendedWebElement(By.xpath(".//a[@href][1]"));
