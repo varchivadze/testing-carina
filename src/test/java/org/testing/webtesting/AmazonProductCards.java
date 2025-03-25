@@ -14,7 +14,7 @@ import java.util.List;
 public class AmazonProductCards implements IAbstractTest {
 
     @Test
-    public void cardWithPicture() {
+    public void cardWithPictureTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         pause(8);

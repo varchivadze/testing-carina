@@ -8,7 +8,7 @@ import org.testing.gui.sidepages.AmazonMusic;
 
 public class FooterNav extends FooterNavBase {
 
-    @FindBy(xpath = "//*[@id=\"navFooter\"]/div[4]/div/ul[1]/li[1]/a")
+    @FindBy(xpath = "//*[@id=\"navFooter\"]/div[last()]/div/ul[1]/li[1]/a")
     private ExtendedWebElement amazonMusicLink;
 
     @FindBy(xpath = "//*[@id=\"navFooter\"]/div[4]/div/ul[2]/li[1]/a")

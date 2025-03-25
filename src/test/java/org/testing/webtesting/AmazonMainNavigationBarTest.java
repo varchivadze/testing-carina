@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
 import java.util.List;
 
 
-public class AmazonMainNavigationBar implements IAbstractTest {
+public class AmazonMainNavigationBarTest implements IAbstractTest {
 
     @Test
     public void testMainNavigation() {

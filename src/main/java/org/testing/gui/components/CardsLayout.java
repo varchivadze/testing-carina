@@ -12,11 +12,11 @@ import java.util.List;
 
 public class CardsLayout extends CardsLayoutBase{
 
-//    @FindBy(id = ".//div[starts-with(@id, 'desktop-grid-')]")
-//    private List<ExtendedWebElement> cards;
+    @FindBy(xpath = ".//div[starts-with(@id, 'desktop-grid-')]")
+    private List<ExtendedWebElement> cards;
 
-    @FindBy(id = "gw-card-layout")
-    private ExtendedWebElement cards;
+//    @FindBy(id = "gw-card-layout")
+//    private ExtendedWebElement cards;
 
     public CardsLayout(WebDriver driver) {
         super(driver);
@@ -26,26 +26,26 @@ public class CardsLayout extends CardsLayoutBase{
         super(driver, searchContext);
     }
 
-//    @Override
-//    public List<ExtendedWebElement> getCards() {
-//        return cards;
-//    }
-
     @Override
     public List<ExtendedWebElement> getCards() {
-        List<ExtendedWebElement> newCards = new ArrayList<>();
-        for (int i = 1; true; i++) {
-            ExtendedWebElement newCard = this.cards.findExtendedWebElement(By.id(String.format("desktop-grid-%s", i)));
-            System.out.println(String.format("desktop-grid-%s", i));
-            if (newCard != null) {
-                newCards.add(newCard);
-            } else {
-                break;
-            }
-        }
-
-        return newCards;
+        return cards;
     }
+
+//    @Override
+//    public List<ExtendedWebElement> getCards() {
+//        List<ExtendedWebElement> newCards = new ArrayList<>();
+//        for (int i = 1; true; i++) {
+//            ExtendedWebElement newCard = this.cards.findExtendedWebElement(By.id(String.format("desktop-grid-%s", i)));
+//            System.out.println(String.format("desktop-grid-%s", i));
+//            if (newCard != null) {
+//                newCards.add(newCard);
+//            } else {
+//                break;
+//            }
+//        }
+//
+//        return newCards;
+//    }
 
 
 

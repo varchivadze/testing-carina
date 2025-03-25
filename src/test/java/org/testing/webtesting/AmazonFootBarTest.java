@@ -10,7 +10,7 @@ import org.testing.gui.pages.HomePage;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class AmazonFootBar implements IAbstractTest {
+public class AmazonFootBarTest implements IAbstractTest {
 
     @Test
     public void testAmazonFootBarOpening() {
