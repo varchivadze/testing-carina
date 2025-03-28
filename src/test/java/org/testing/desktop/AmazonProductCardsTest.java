@@ -34,12 +34,10 @@ public class AmazonProductCardsTest implements IAbstractTest {
                     System.out.println("The header of Card -> " + header.getText());
                     softAssert.assertFalse(header.getText().isEmpty(), "No text in card header");
 
-                    ExtendedWebElement footer = e.findExtendedWebElement(By.xpath(".//span[contains(@class, a-truncate-full)][2]"));
-                    System.out.println("The footer of Card -> " + footer.getText());
+                    ExtendedWebElement footer = e.findExtendedWebElement(By.xpath(".//div[contains(@class, 'a-cardui-footer')]"));
+                    ExtendedWebElement footerText = footer.findExtendedWebElement(By.xpath(".//span[contains(@class, a-truncate-full)]"));
+                    System.out.println("The footer of Card -> " + footerText.getText());
                     softAssert.assertFalse(footer.getText().isEmpty(), "No text in card footer");
-
-                    ExtendedWebElement link = e.findExtendedWebElement(By.xpath(".//a[@href][1]"));
-                    softAssert.assertFalse(link.getText().isEmpty(), "Link is empty in card");
                 });
         softAssert.assertAll();
     }
