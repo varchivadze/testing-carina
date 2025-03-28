@@ -1,9 +1,9 @@
-package org.testing.webtesting;
+package org.testing.android;
 
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import org.testing.gui.components.MainShopNavBar;
-import org.testing.gui.pages.HomePage;
+import org.testing.gui.components.mobile.MainShopNavBar;
+import org.testing.gui.components.mobile.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -17,7 +17,6 @@ public class AmazonMainNavigationBarTest implements IAbstractTest {
     public void testMainNavigation() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        pause(8);
 
         SoftAssert softAssert = new SoftAssert();
         MainShopNavBar mainShopNavBar = homePage.getMainShopNavbar();

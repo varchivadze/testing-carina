@@ -2,13 +2,13 @@ package org.testing.gui.common;
 
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
-import org.testing.gui.components.desktop.CardsLayout;
-import org.testing.gui.components.desktop.MainShopNavBar;
-import org.testing.gui.components.desktop.FooterNav;
+import org.testing.gui.components.mobile.CardsLayout;
+import org.testing.gui.components.mobile.FooterNav;
+import org.testing.gui.components.mobile.MainShopNavBar;
 
-public abstract class HomePageBase extends AbstractPage {
+public abstract class HomePageMobileBase extends AbstractPage {
 
-    public HomePageBase(WebDriver webDriver) {
+    public HomePageMobileBase(WebDriver webDriver) {
         super(webDriver);
     }
 

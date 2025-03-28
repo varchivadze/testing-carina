@@ -1,17 +1,18 @@
-package org.testing.gui.footer;
+package org.testing.gui.components.desktop;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.testing.gui.common.FooterNavBase;
 import org.testing.gui.sidepages.AmazonMusic;
 
 public class FooterNav extends FooterNavBase {
 
-    @FindBy(xpath = "//*[@id=\"navFooter\"]/div[last()]/div/ul[1]/li[1]/a")
+    @FindBy(xpath = ".//h5[normalize-space(text())='Amazon Music']")
     private ExtendedWebElement amazonMusicLink;
 
-    @FindBy(xpath = "//*[@id=\"navFooter\"]/div[4]/div/ul[2]/li[1]/a")
+    @FindBy(xpath = ".//h5[normalize-space(text())='Amazon Business']")
     private ExtendedWebElement amazonBusinessLink;
 
     public FooterNav(WebDriver driver) {

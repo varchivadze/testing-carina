@@ -3,7 +3,9 @@
 <suite name="WebSuit" verbose="1">
     <test name="Web">
         <classes>
-            <class name="org.testing.webtesting.AmazonFootBar"/>
+            <class name="org.testing.desktop.AmazonFootBarTest"/>
+            <class name="org.testing.desktop.AmazonMainNavigationBarTest"></class>
+            <class name="org.testing.desktop.AmazonProductCardsTest"></class>
         </classes>
     </test>
 </suite>

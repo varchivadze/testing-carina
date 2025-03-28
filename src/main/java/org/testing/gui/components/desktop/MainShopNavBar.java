@@ -1,10 +1,11 @@
-package org.testing.gui.components;
+package org.testing.gui.components.desktop;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.testing.gui.common.MainShopNavBarBase;
 
 import java.util.List;
 

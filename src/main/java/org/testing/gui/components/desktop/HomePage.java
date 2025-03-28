@@ -1,13 +1,13 @@
-package org.testing.gui.pages;
+package org.testing.gui.components.desktop;
 
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.testing.gui.common.HomePageBase;
-import org.testing.gui.components.CardsLayout;
-import org.testing.gui.components.MainShopNavBar;
-import org.testing.gui.components.MainShopNavBarBase;
-import org.testing.gui.footer.FooterNav;
+import org.testing.gui.common.HomePageMobileBase;
+import org.testing.gui.components.desktop.FooterNav;
+import org.testing.gui.components.desktop.MainShopNavBar;
+import org.testing.gui.components.desktop.CardsLayout;
 
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = HomePageBase.class) // where to put DeviceType? Why should we note parentClass if it extended?
 public class HomePage extends HomePageBase {
@@ -17,9 +17,6 @@ public class HomePage extends HomePageBase {
 
     @FindBy(id = "nav-xshop")
     private MainShopNavBar navbar;
-
-//    @FindBy(id = "gw-card-layout")
-//    private CardsLayout cardsLayout;
 
     @FindBy(id = "gw-layout")
     private CardsLayout cardsLayout;

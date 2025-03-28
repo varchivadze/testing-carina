@@ -1,4 +1,4 @@
-package org.testing.gui.components;
+package org.testing.gui.common;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;

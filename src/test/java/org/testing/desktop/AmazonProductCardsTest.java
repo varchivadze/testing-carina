@@ -1,17 +1,17 @@
-package org.testing.webtesting;
+package org.testing.desktop;
 
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.By;
-import org.testing.gui.components.CardsLayout;
-import org.testing.gui.pages.HomePage;
+import org.testing.gui.components.desktop.CardsLayout;
+import org.testing.gui.components.desktop.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class AmazonProductCards implements IAbstractTest {
+public class AmazonProductCardsTest implements IAbstractTest {
 
     @Test
     public void cardWithPictureTest() {
