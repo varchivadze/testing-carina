@@ -28,7 +28,7 @@ public class GhTest implements IAbstractTest {
 
     @BeforeTest
     public void beforeTest() {
-        System.out.println("\n\n\n =>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n");
+        //
     }
 
     @DataProvider
@@ -50,14 +50,13 @@ public class GhTest implements IAbstractTest {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             user = objectMapper.readValue(responce, User.class);
-            System.out.println("This ->>>" + user);
+
         } catch (Exception e) {
-            System.out.println("Error ->>> " + e.getMessage());
+            //
         }
         SoftAssert sf = new SoftAssert();
         sf.assertNotNull(user, "User null");
         sf.assertTrue(user.getId() > 10);
-        System.out.println(user.getLogin());
         sf.assertFalse(user.getLogin().length() < 5, String.format("Expected size less %d but got %d", 5, user.getLogin().length()));
 
         sf.assertAll();

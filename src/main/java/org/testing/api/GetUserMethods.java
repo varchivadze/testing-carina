@@ -17,10 +17,7 @@ public class GetUserMethods extends AbstractApiMethodV2 {
 
     public GetUserMethods(String user) {
 
-//        super(null, "api/user/rs.json");
-
         String apiUrl = Configuration.getRequired("api_url");
-        System.out.println(apiUrl);
 
         replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
         replaceUrlPlaceholder("user", user);

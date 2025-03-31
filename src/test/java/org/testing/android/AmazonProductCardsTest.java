@@ -27,8 +27,7 @@ public class AmazonProductCardsTest implements IAbstractTest {
         CardsLayout cardsLayout = homePage.getCardsLayout();
         List<ExtendedWebElement> cardsNew = cardsLayout.getCards();
         Assert.assertFalse(cardsNew.isEmpty(), "The list of Cards is empty!!!");
-        cardsNew.stream()
-                .peek(e -> System.out.println(e.getTagName() + e.getTitle() + e.getAttribute("id")))
+        cardsNew
                 .forEach(e -> {
 
                     softAssert.assertTrue(e.isPresent(), "The card is not present!");
@@ -36,12 +35,12 @@ public class AmazonProductCardsTest implements IAbstractTest {
 
                     ExtendedWebElement header = e.findExtendedWebElement(By.xpath(".//div[contains(@class, a-cardui-header)]"));
                     ExtendedWebElement headerText = header.findExtendedWebElement(By.xpath(".//span[contains(@class, 'a-truncate-full') and contains(@class, 'a-offscreen')]"));
-                    System.out.println("The header of Card -> " + headerText.getText());
+
                     softAssert.assertFalse(header.getText().isEmpty(), "No text in card header");
 
                     ExtendedWebElement footer = e.findExtendedWebElement(By.xpath(".//span[contains(@class, a-cardui-footer)]"));
                     ExtendedWebElement footerText = footer.findExtendedWebElement(By.xpath(".//span[contains(@class, a-truncate-full) and contains(@class, a-offscreen)]"));
-                    System.out.println("The footer of Card -> " + footerText.getText());
+
                     softAssert.assertFalse(footer.getText().isEmpty(), "No text in card footer");
                 });
         softAssert.assertAll();

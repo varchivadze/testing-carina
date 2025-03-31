@@ -23,9 +23,8 @@ public class AmazonMainNavigationBarTest implements IAbstractTest {
         MainShopNavBar mainShopNavBar = homePage.getMainShopNavbar();
         List<ExtendedWebElement> listOfLinks = mainShopNavBar.getLinks();
         Assert.assertFalse(listOfLinks.isEmpty(), "The list of links is empty!!!");
-        System.out.println("Test-------");
+
         listOfLinks.
-                stream().peek(e -> System.out.println("Element name ->" + e.getText() + " - " + e.getAttribute("href"))).
                 forEach(e -> {
                     softAssert.assertFalse(e.getText().isEmpty(), "Link text is empty");
                     softAssert.assertFalse(e.getAttribute("href").isEmpty(), "No link presents under the text");         });
